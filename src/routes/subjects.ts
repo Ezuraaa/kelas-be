@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
         const offset = (currentPage - 1) * limitPage;
 
         const filterConditions = [];
-        // If search query exists, filter by subject name OR subject code
         if(search) {
             filterConditions.push(
                 or(
