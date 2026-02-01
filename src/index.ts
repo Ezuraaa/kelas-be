@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import subjectRouter from './routes/subjects.js';
+import usersRouter from './routes/users.js';
 import securityMiddleware from './middleware/security.js';
 import { toNodeHandler } from 'better-auth/node';
 import { auth } from './lib/auth.js';
@@ -17,13 +18,14 @@ app.use(cors({
 
 }))
 
-app.all('/api/auth/*splat', toNodeHandler(auth));
+// app.all('/api/auth/*splat', toNodeHandler(auth));
 
 app.use(express.json());
 
-app.use(securityMiddleware);
+// app.use(securityMiddleware);
 
-app.use('/api/subjects', subjectRouter)
+app.use('/api/subjects', subjectRouter);
+app.use('/api/users', usersRouter)
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Express TypeScript Server!');
