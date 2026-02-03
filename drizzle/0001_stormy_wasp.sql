@@ -1,5 +1,5 @@
 CREATE TYPE "public"."class_status" AS ENUM('active', 'inactive', 'archived');--> statement-breakpoint
-CREATE TYPE "public"."role" AS ENUM('mahasiswa', 'dosen', 'admin');--> statement-breakpoint
+CREATE TYPE "public"."role" AS ENUM('student', 'teacher', 'admin');--> statement-breakpoint
 CREATE TABLE "classes" (
 	"id" integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (sequence name "classes_id_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START WITH 1 CACHE 1),
 	"subject_id" integer NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE "user" (
 	"email" text NOT NULL,
 	"email_verified" boolean NOT NULL,
 	"image" text,
-	"role" "role" DEFAULT 'mahasiswa' NOT NULL,
+	"role" "role" DEFAULT 'student' NOT NULL,
 	"image_cld_pub_id" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
