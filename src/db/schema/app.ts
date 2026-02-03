@@ -19,6 +19,13 @@ const timestamps = {
     .notNull(),
 };
 
+export interface Schedule {
+  dayOfWeek: number;
+  startTime: string;
+  endTime: string;
+  room?: string;
+}
+
 export const classStatusEnum = pgEnum("class_status", [
   "active",
   "inactive",
@@ -67,7 +74,7 @@ export const classes = pgTable(
     capacity: integer("capacity").notNull().default(50),
     description: text("description"),
     status: classStatusEnum("status").notNull().default("active"),
-    // schedules: jsonb("schedules").$type<Schedule[]>().notNull(),
+    schedules: jsonb("schedules").$type<Schedule[]>().notNull(),
 
     ...timestamps,
   },

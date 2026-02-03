@@ -1,3 +1,3 @@
-type UserRoles = "admin" | "dosen" | "mahasiswa";
+type UserRoles = "admin" | "teacher" | "student";
 
 type RateLimitRole = UserRoles | "guest";

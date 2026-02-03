@@ -16,8 +16,8 @@ const securityMiddleware = async (req: Request, res: Response, next: NextFunctio
                 limit = 20;
                 message = 'Admin request limit exceeded (20 per minute). Slow down.';
                 break;
-            case 'dosen':
-            case 'mahasiswa':
+            case 'teacher':
+            case 'student':
                 limit = 10;
                 message = 'User request limit exceeded (10 per minute). Please wait.';
                 break
